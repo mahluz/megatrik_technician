@@ -1,0 +1,8 @@
+{
+  "name": "megatrik_technician",
+  "app_id": "a2e1f725",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
