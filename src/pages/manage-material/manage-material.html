@@ -1,0 +1,43 @@
+<!--
+  Generated template for the ManageMaterialPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>ManageMaterial</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<button ion-button color="secondary" (click)="debug()" >Debug</button>
+<ion-list>
+  <ion-item>
+    <ion-label>Tambah material</ion-label>
+    <ion-select [(ngModel)]="material" (ionChange)="addMaterial()" >
+      <ion-option *ngFor="let material of materials" value="{{ material['id'] }}">{{ material["material"] }}</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+<ion-list>
+  <ion-item-sliding *ngFor="let material of orderMaterials">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="https://lh3.googleusercontent.com/_Ofe1l5kLKOZPctG4esWo4XYlbhnIQ5Lt34oRxSbsuQR_9Nr98oMdNM590iy9DSNHRsP=w300">
+      </ion-avatar>
+      <h2>{{ material["material"]["material"] }}</h2>
+      <h3>{{ material["material"]["description"] }}</h3>
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button color="danger" (click)="removeOrderMaterial(material['id'])" >
+        <ion-icon name="trash"></ion-icon>
+        Remove
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+</ion-content>

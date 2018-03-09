@@ -1,0 +1,56 @@
+<!--
+  Generated template for the MenuPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>menu</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<ion-slides style="height:30vh" pager>
+	    <ion-slide style="background-image:url('assets/images/background/banner-1.jpeg');background-size: cover;background-position: fixed;">
+	      <!-- <h2>Slide 1</h2> -->
+	    </ion-slide>
+	    <ion-slide style="background-image:url('assets/images/background/banner-2.jpeg');background-size: cover;background-position: fixed;">
+	      <!-- <h2>Slide 2</h2> -->
+	    </ion-slide>
+	    <ion-slide style="background-image:url('assets/images/background/banner-3.jpeg');background-size: cover;background-position: fixed;">
+	      <!-- <h2>Slide 3</h2> -->
+	    </ion-slide>
+  	</ion-slides>
+	<ion-grid>
+		<ion-row>
+			<ion-col col-6>
+				<ion-card (click)="about()">
+				    <img src="assets/images/menu/menu-about.jpeg"/>
+				    <!-- <div class="card-title">About</div> -->
+				    
+			  	</ion-card>
+			</ion-col>
+			<ion-col col-6>
+				<ion-card (click)="material()">
+				    <img src="assets/images/menu/menu-material.jpeg"/>
+				    <!-- <div class="card-title">Material</div> -->
+				    
+			  	</ion-card>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col col-6>
+				<ion-card (click)="help()">
+				    <img src="assets/images/menu/menu-help.jpeg"/>
+				    <!-- <div class="card-title">Help</div> -->
+				    
+			  	</ion-card>
+			</ion-col>
+			
+		</ion-row>
+	</ion-grid>
+</ion-content>

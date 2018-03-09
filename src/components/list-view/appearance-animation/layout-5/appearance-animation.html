@@ -1,0 +1,43 @@
+<!--Theme Appearance animation (Zoom In)-->
+<ion-content has-header>
+    <ion-grid no-padding *ngIf="data != null">
+        <ion-row>
+            <ion-col col-12>
+                <ion-list no-margin>
+                    <ion-item-sliding no-lines [ngClass]="animateClass" *ngFor="let item of animateItems; let i = index;" (click)="onEvent('onItemClick', item.id, $event)">
+                        <ion-item href="#">
+                            <ion-avatar item-start>
+                            <img src="http://www.olango.net/wp-content/uploads/2012/10/service-icon.png" alt="{{item.title}}" />
+                            </ion-avatar>
+                            <h2 item-title padding-left>{{item.service["service"]}}</h2>
+                            <ion-icon icon-small item-right name="options" (click)="onEvent('onFavorite', item, $event)" >
+                            </ion-icon>
+                        </ion-item>
+                        <ion-item-options side="left">
+                          <button ion-button color="primary" (click)="onEvent('onComplete', item.id, $event)">
+                            <ion-icon name="cash"></ion-icon>
+                            Complete
+                          </button>
+                          <button ion-button color="secondary">
+                            <ion-icon name="call"></ion-icon>
+                            Call
+                          </button>
+                        </ion-item-options>
+                        <ion-item-options side="right">
+                          <button ion-button color="primary" (click)="onEvent('onCancel', item.id, $event)">
+                            <ion-icon name="trash"></ion-icon>
+                            Cancel
+                          </button>
+                        </ion-item-options>
+                    </ion-item-sliding>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+<!-- Fab Button -->
+<ion-fab #fab bottom right>
+    <button button-ion-fab ion-fab (click)="onEvent('onFab', data, $event)">
+    <ion-icon name="add"></ion-icon>
+  </button>
+</ion-fab>

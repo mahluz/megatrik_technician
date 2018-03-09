@@ -1,0 +1,168 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>signup</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<!-- Themes Register + Image -->
+<ion-content has-header white-background>
+    <ion-grid>
+        <ion-row wrap padding>
+            <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+                <!--Logo-->
+                <div logo>
+                    <img src="assets/images/logo/login-2.png" />
+                </div>
+                <!--End logo-->
+                <!--Form-->
+                <div class="form">
+                    <ion-item no-padding transparent>
+                        <!--Icon for username-->
+                        <ion-icon name="contact" item-left>
+                        </ion-icon>
+                        <!---Input field username-->
+                        <ion-label floating>Name</ion-label>
+                        <ion-input required type="text" [(ngModel)]="credential.name"></ion-input>
+                    </ion-item>
+                    <ion-item no-padding transparent>
+                        <!--Icon for password-->
+                        <ion-icon name="mail" item-left>
+                        </ion-icon>
+                        <!---Input field password-->
+                        <ion-label floating>Email</ion-label>
+                        <ion-input required type="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" [(ngModel)]="credential.email"></ion-input>
+                    </ion-item>
+                    <ion-item no-padding transparent>
+                        <!--Icon for email-->
+                        <ion-icon name="key" item-left>
+                        </ion-icon>
+                        <!---Input field email-->
+                        <ion-label floating>Password</ion-label>
+                        <ion-input required type="password" required [(ngModel)]="credential.password"></ion-input>
+                    </ion-item>
+                     <ion-item no-padding transparent>
+                        <!--Icon for email-->
+                        <ion-icon name="md-transgender" item-left>
+                        </ion-icon>
+                        <!---Input field email-->
+                        <ion-label floating>Gender</ion-label>
+                        <ion-select [(ngModel)]="credential.gender" >
+                        	<ion-option value="Laki-laki">
+                        		Laki-laki
+                        	</ion-option>
+                        	<ion-option value="Perempuan">
+                        		Perempuan
+                        	</ion-option>
+                        </ion-select>
+                    </ion-item>
+                     <ion-item no-padding transparent>
+                        <!--Icon for email-->
+                        <ion-icon name="call" item-left>
+                        </ion-icon>
+                        <!---Input field email-->
+                        <ion-label floating>CP</ion-label>
+                        <ion-input required type="number" pattern="0-9" required [(ngModel)]="credential.cp"></ion-input>
+                    </ion-item>
+                     <ion-item no-padding transparent>
+                        <!--Icon for email-->
+                        <ion-icon name="calendar" item-left>
+                        </ion-icon>
+                        <!---Input field email-->
+                        <ion-label floating>Date Of Birth</ion-label>
+                        <ion-datetime required displayFormat="MM-DD-YYYY" required [(ngModel)]="credential.date_of_birth"></ion-datetime>
+                    </ion-item>
+                     <ion-item no-padding transparent>
+                        <!--Icon for email-->
+                        <ion-icon name="list-box" item-left>
+                        </ion-icon>
+                        <!---Input field email-->
+                        <ion-label floating>Province</ion-label>
+                        <ion-select [(ngModel)]="credential.province" (ionChange)="getRegency()">
+                            <ion-option *ngFor="let province of provinces" value="{{ province['name'] }}">
+                                {{ province["name"] }}
+                            </ion-option>
+                        </ion-select>
+                    </ion-item>
+                     <ion-item no-padding transparent *ngIf="credential.province != null">
+                        <!--Icon for email-->
+                        <ion-icon name="list-box-outline" item-left>
+                        </ion-icon>
+                        <!---Input field email-->
+                        <ion-label floating>Regency</ion-label>
+                        <ion-select [(ngModel)]="credential.regency" (ionChange)="getDistrict()">
+                            <ion-option *ngFor="let regency of regencies" value="{{ regency['name'] }}">
+                                {{ regency["name"] }}
+                            </ion-option>
+                        </ion-select>
+                    </ion-item>
+                     <ion-item no-padding transparent *ngIf="credential.regency != null">
+                        <!--Icon for email-->
+                        <ion-icon name="md-list-box" item-left>
+                        </ion-icon>
+                        <!---Input field email-->
+                        <ion-label floating>District</ion-label>
+                        <ion-select [(ngModel)]="credential.district" (ionChange)="getVillage()">
+                            <ion-option *ngFor="let district of districts" value="{{ district['name'] }}">
+                                {{ district["name"] }}
+                            </ion-option>
+                        </ion-select>
+                    </ion-item>
+                     <ion-item no-padding transparent *ngIf="credential.district != null">
+                        <!--Icon for email-->
+                        <ion-icon name="home" item-left>
+                        </ion-icon>
+                        <!---Input field email-->
+                        <ion-label floating>Village</ion-label>
+                        <ion-select [(ngModel)]="credential.village">
+                            <ion-option *ngFor="let village of villages" value="{{ village['name'] }}">
+                                {{ village["name"] }}
+                            </ion-option>
+                        </ion-select>
+                    </ion-item>
+                     <ion-item no-padding transparent>
+                        <!--Icon for email-->
+                        <ion-icon name="home-outline" item-left>
+                        </ion-icon>
+                        <!---Input field email-->
+                        <ion-label floating>Home Address</ion-label>
+                        <ion-input required type="text" required [(ngModel)]="credential.home_address"></ion-input>
+                    </ion-item>	
+                     <ion-item no-padding transparent>
+                        <!--Icon for email-->
+                        <ion-icon name="school" item-left>
+                        </ion-icon>
+                        <!---Input field email-->
+                        <ion-label floating>Last Education</ion-label>
+                        <ion-input required type="text" required [(ngModel)]="credential.last_education"></ion-input>
+                    </ion-item>
+                     <ion-item no-padding transparent>
+                        <!--Icon for email-->
+                        <ion-icon name="people" item-left>
+                        </ion-icon>
+                        <!---Input field email-->
+                        <ion-label floating>Profession</ion-label>
+                        <ion-input required type="text" required [(ngModel)]="credential.profession"></ion-input>
+                    </ion-item>
+                     <ion-item no-padding transparent>
+                        <!--Icon for email-->
+                        <ion-icon name="paper" item-left>
+                        </ion-icon>
+                        <!---Input field email-->
+                        <ion-label floating>Skill</ion-label>
+                        <ion-input required type="text" required [(ngModel)]="credential.skill"></ion-input>
+                    </ion-item>
+                    <!---Register button-->
+                    <button ion-button float-right clear button-clear (click)="onRegister()">Register</button>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
